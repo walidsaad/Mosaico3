@@ -5,7 +5,6 @@ nodes = [
   { :hostname => 'master',  :ip => '10.0.0.10', :id => '10' },
   { :hostname => 'node1',   :ip => '10.0.0.11', :id => '11' },
   { :hostname => 'node2',   :ip => '10.0.0.12', :id => '12' },
-  { :hostname => 'node3',   :ip => '10.0.0.13', :id => '13' },
 ]
 
 memory = 2000
