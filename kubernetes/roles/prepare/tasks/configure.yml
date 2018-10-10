@@ -2,3 +2,5 @@
 - service: name=docker state=started enabled=yes
 - service: name=ntp state=started enabled=yes
 - service: name=kubelet state=started enabled=yes
+- sysctl: name=net.bridge.bridge-nf-call-ip6tables value=1 state=present reload=yes sysctl_set=yes
+- sysctl: name=net.bridge.bridge-nf-call-iptables value=1 state=present reload=yes sysctl_set=yes
