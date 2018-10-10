@@ -12,12 +12,3 @@
   gather_facts: False
   roles:
     - { role: 'master', tags: 'master' }
-
-- name: setup nodes
-  hosts: all
-  become: True
-  gather_facts: False
-  vars:
-    master_hostname: "{{ groups['masters'][0] }}"
-  roles:
-    - { role: 'nodes', tags: 'nodes' }
