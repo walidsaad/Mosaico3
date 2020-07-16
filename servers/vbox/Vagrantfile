@@ -5,6 +5,7 @@ nodes = [
   { :hostname => 'master',  :ip => '10.0.0.10', :id => '10' },
   { :hostname => 'node1',   :ip => '10.0.0.11', :id => '11' },
   { :hostname => 'node2',   :ip => '10.0.0.12', :id => '12' },
+  { :hostname => 'bastion',   :ip => '10.0.0.13', :id => '13' },
 ]
 
 memory = 2000
@@ -23,9 +24,9 @@ Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
   nodes.each do |node|
     config.vm.define node[:hostname] do |nodeconfig|
-      nodeconfig.vm.box = "ubuntu/xenial64"
+      nodeconfig.vm.box = "ubuntu/bionic64"
       nodeconfig.vm.hostname = node[:hostname]
-      nodeconfig.vm.network :private_network, ip: node[:ip], virtualbox__intnet: domain
+      nodeconfig.vm.network :private_network, ip: node[:ip]
       nodeconfig.vm.provider :virtualbox do |vb|
         vb.name = node[:hostname]+"."+domain
         vb.memory = memory
